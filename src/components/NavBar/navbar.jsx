@@ -69,6 +69,7 @@ const Navbar = () => {
                 Sign Up
               </Link>
             </div>
+
             {/* <!-- Mobile menu button --> */}
             <div class="md:hidden flex items-center">
               <button class="outline-none mobile-menu-button">
