@@ -22,12 +22,12 @@ const Movies = () => {
   }, []);
 
   return (
-    <div>
+    <div class="p-10 bg-slate-900  grid-cols-1 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
       {movies.map((movie) => {
         return <MovieCard movieDetails={movie}></MovieCard>;
       })}
       {
-        <div class="container flex justify-center mx-auto">
+        <div class="container inline-block  justify-center mx-auto">
           <ul class="flex">
             <li>
               <button
@@ -42,13 +42,13 @@ const Movies = () => {
                     console.log("offeset");
                   }
                 }}
-                class="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white"
+                class="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-slate-800 hover:text-white"
               >
                 Prev
               </button>
               {page}
               <button
-                class="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white"
+                class="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-slate-800 hover:text-white"
                 onClick={() => {
                   changeOffeset(page + 1);
                   getMoreMovies();

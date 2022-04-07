@@ -1,32 +1,31 @@
 import React from "react";
 
 export default function MovieCard(props) {
+  console.log(props.movieDetails);
   return (
-    <div class="max-w-30 w-30 rounded overflow-hidden inline-flex shadow-lg ">
+    <div className="rounded overflow-hidden bg-slate-100 shadow-lg">
       <img
-        class="w-25"
+        className="w-full"
         src={
-          `https://image.tmdb.org/t/p/w500/` + props.movieDetails.poster_path
+          `https://image.tmdb.org/t/p/w500` + props.movieDetails.backdrop_path
         }
-        alt="Sunset in the mountains"
+        alt="movie poster"
       />
-      <div class="px-4 py-4">
-        <div class="font-bold text-xl mb-2">{props.movieDetails.title}</div>
-        <p class="text-gray-700 text-base">{props.movieDetails.overview}</p>
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2 text-slate-900">
+          {props.movieDetails.title}
+        </div>
       </div>
-      <div class="px-6 pt-4 pb-2">
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          {props.movieDetails.vote_average}
+      <div className="px-6 pt-4 pb-2">
+        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+          {props.movieDetails.vote_average
+            ? props.movieDetails.vote_average
+            : "-"}
         </span>
-        <span
-          class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-          style={{
-            display: props.movieDetails.vote_count ? "inline-flex" : "none",
-          }}
-        >
-          {props.movieDetails.vote_count}
+        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+          {props.movieDetails.vote_count ? props.movieDetails.vote_count : "-"}
         </span>
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
           {props.movieDetails.original_language}
         </span>
       </div>
