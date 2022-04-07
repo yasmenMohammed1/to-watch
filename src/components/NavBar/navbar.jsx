@@ -1,106 +1,132 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav class="bg-slate-900 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
-      <div class="container flex flex-wrap justify-between items-center mx-auto">
-        <a to="https://flowbite.com" class="flex items-center">
-          <span class="self-center text-xl font-semibold whitespace-nowrap white">
-            POPCORN
-          </span>
-        </a>
-        <div class="flex md:order-2">
-          <div class="hidden relative mr-3 md:mr-0 md:block">
-            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-              <svg
-                class="w-5 h-5 text-gray-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
+    // <!-- Navbar goes here -->
+    <>
+      <nav class="bg-slate-900 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+          <div class="flex justify-between">
+            <div class="flex space-x-7">
+              <div>
+                <a href="#" class="flex items-center py-4 px-2">
+                  <span class="font-semibold text-slate-500 text-lg">
+                    ToWhatch?
+                  </span>
+                </a>
+              </div>
+              {/* <!-- Primary Navbar items --> */}
+              <div class="hidden md:flex items-center space-x-1">
+                <Link
+                  to="/"
+                  class="py-4 px-2 text-red-700 border-b-4 font-semibold 
+                  visited: border-red-700 "
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/movies"
+                  class="py-4 px-2 text-red-700 border-b-4 font-semibold 
+                  peer-visited: border-red-700
+                  hover:text-slate-500 transition duration-300"
+                >
+                  Movies
+                </Link>
+                <Link
+                  to="/geners"
+                  class="py-4 px-2 text-red-700 border-b-4 font-semibold 
+                  peer-visited: border-red-700
+                  hover:text-slate-500 transition duration-300"
+                >
+                  Geners
+                </Link>
+                <Link
+                  href=""
+                  class="py-4 px-2 text-red-700 border-b-4 font-semibold 
+                  peer-visited: border-red-700
+                  hover:text-slate-500 transition duration-300"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
-            <input
-              type="text"
-              id="email-adress-icon"
-              class="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Search..."
-            />
+            {/* <!-- Secondary Navbar items --> */}
+            <div class="hidden md:flex items-center space-x-3 ">
+              <Link
+                href=""
+                class="py-4 px-2 text-red-700 border-b-4 font-semibold 
+                peer-visited: border-red-700
+                hover:text-slate-500 transition duration-300"
+              >
+                Log In
+              </Link>
+              <Link
+                href=""
+                class="py-2 px-2 font-medium text-white bg-red-700 rounded hover:bg-red-600 transition duration-300"
+              >
+                Sign Up
+              </Link>
+            </div>
+            {/* <!-- Mobile menu button --> */}
+            <div class="md:hidden flex items-center">
+              <button class="outline-none mobile-menu-button">
+                <svg
+                  class=" w-6 h-6 text-gray-500 hover:text-green-500 "
+                  x-show="!showMenu"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+              </button>
+            </div>
           </div>
-          <button
-            data-collapse-toggle="mobile-menu-3"
-            type="button"
-            class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="mobile-menu-3"
-            aria-expanded="false"
-          >
-            <span class="sr-only">Open main menu</span>
-            <svg
-              class="w-6 h-6"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-            <svg
-              class="hidden w-6 h-6"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </button>
         </div>
-        <div
-          class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
-          id="mobile-menu-3"
-        >
-          <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-            <li>
-              <NavLink
-                to="/"
-                class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                aria-current="page"
+        {/* <!-- mobile menu --> */}
+        <div class="hidden mobile-menu">
+          <ul class="">
+            <li class="active">
+              <a
+                href="index.html"
+                class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold"
               >
                 Home
-              </NavLink>
+              </a>
             </li>
             <li>
-              <NavLink
-                to="/movies"
-                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              <a
+                href="#services"
+                class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
               >
-                Movies
-              </NavLink>
+                Services
+              </a>
             </li>
             <li>
-              <NavLink
-                to="/about"
-                class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-bg-slate-900 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              <a
+                href="#about"
+                class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
               >
-                about
-              </NavLink>
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"
+              >
+                Contact Us
+              </a>
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 };
 
