@@ -13,7 +13,9 @@ function App() {
       <Navbar />
       <Switch>
         <Route path={"/geners"} exaxt component={Geners} />
-        <Route path={"/movies"} component={Movies} />
+        <Route exact path={"/movies"} component={Movies} />
+
+        <Route path={"/movies/:search"} component={Movies} />
         <Route path={"/register"} component={Register} />
         <Route exact path="/genre/:id" component={GenereMovies} />
         <Route path="*" component={NotFound} />

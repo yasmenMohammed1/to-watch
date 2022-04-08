@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SimpleMovieView from "../SimpleMovieView";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Redirect, Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 const GenerCard = (props) => {
@@ -20,7 +18,10 @@ const GenerCard = (props) => {
   return (
     <>
       <div class="p-10 grid grid-cols-12 h-60 justify-center  bg-slate-900 ">
-        <p className="font-sans font-bold text-red-700"> {props.genre.name}</p>
+        <p className="font-sans font-bold text-red-700 break-words text-left">
+          {" "}
+          {props.genre.name}
+        </p>
         {moviesBygenere.slice(0, 10).map((movie) => {
           return <SimpleMovieView movieDetails={movie}></SimpleMovieView>;
         })}

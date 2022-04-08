@@ -4,7 +4,7 @@ export default function MovieCard(props) {
   let shown = false;
   let apiKey = "e52ef21b96833b97ce76b3663ea32335";
   const [showModal, setShowModal] = React.useState(false);
-
+  console.log(props.movieDetails);
   return (
     <>
       <div
