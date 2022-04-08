@@ -3,6 +3,15 @@ import axios from "axios";
 import MovieCard from "../components/MovieCard/movieCard";
 import { useParams } from "react-router-dom";
 const GenereMovies = () => {
+  const ColoredLine = ({ color }) => (
+    <hr
+      style={{
+        color: color,
+        backgroundColor: color,
+        height: 5,
+      }}
+    />
+  );
   const [moviesBygenere, getGenerMovies] = useState([]);
   const props = useParams();
   const [offeset, changeOffeset] = useState(1);
@@ -24,46 +33,52 @@ const GenereMovies = () => {
     console.log(params);
   }, []);
   return (
-    <div class="p-10 bg-slate-900  grid-cols-1 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-      {moviesBygenere.map((movie) => {
-        return <MovieCard movieDetails={movie}></MovieCard>;
-      })}
-      {
-        <div class="container inline-block  justify-center mx-auto">
-          <ul class="flex">
-            <li>
-              <button
-                onClick={() => {
-                  {
-                    if (page < 500) {
-                      pageNumber(page - 1);
-                      changeOffeset(page);
-                      getMovies();
-                    }
+    <>
+      <div class="p-10 bg-slate-900  grid-cols-1 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+        {moviesBygenere.map((movie) => {
+          return <MovieCard movieDetails={movie}></MovieCard>;
+        })}
+        {
+          <>
+            <ColoredLine color="red" />
 
-                    console.log("offeset");
-                  }
-                }}
-                class="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-slate-800 hover:text-white"
-              >
-                Prev
-              </button>
-              {page}
-              <button
-                class="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-slate-800 hover:text-white"
-                onClick={() => {
-                  changeOffeset(page + 1);
-                  getMovies();
-                  pageNumber(page + 1);
-                }}
-              >
-                Next
-              </button>
-            </li>
-          </ul>
-        </div>
-      }
-    </div>
+            <div class="container inline-block align-middle justify-end mx-auto">
+              <ul class="flex">
+                <li>
+                  <button
+                    onClick={() => {
+                      {
+                        if (page < 500) {
+                          pageNumber(page - 1);
+                          changeOffeset(page);
+                          getMovies();
+                        }
+
+                        console.log("offeset");
+                      }
+                    }}
+                    class="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-slate-800 hover:text-white"
+                  >
+                    Prev
+                  </button>
+                  {page}
+                  <button
+                    class="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-slate-800 hover:text-white"
+                    onClick={() => {
+                      changeOffeset(page + 1);
+                      getMovies();
+                      pageNumber(page + 1);
+                    }}
+                  >
+                    Next
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </>
+        }
+      </div>
+    </>
   );
 };
 
