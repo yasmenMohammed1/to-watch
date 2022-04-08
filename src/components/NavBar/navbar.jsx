@@ -63,7 +63,7 @@ const Navbar = () => {
                 Log In
               </Link>
               <Link
-                href=""
+                to="/register"
                 class="py-2 px-2 font-medium text-white bg-red-700 rounded hover:bg-red-600 transition duration-300"
               >
                 Sign Up
