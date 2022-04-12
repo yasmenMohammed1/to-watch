@@ -32,20 +32,13 @@ const Navbar = () => {
               {/* <!-- Primary Navbar items --> */}
               <div class="hidden md:flex items-center space-x-1">
                 <Link
-                  to="/"
+                  to="/movies/"
                   class="py-4 px-2 text-red-700 border-b-4 font-semibold 
                   visited: border-red-700 "
                 >
                   Home
                 </Link>
-                <Link
-                  to="/movies"
-                  class="py-4 px-2 text-red-700 border-b-4 font-semibold 
-                  peer-visited: border-red-700
-                  hover:text-slate-500 transition duration-300"
-                >
-                  Movies
-                </Link>
+
                 <Link
                   to="/geners"
                   class="py-4 px-2 text-red-700 border-b-4 font-semibold 

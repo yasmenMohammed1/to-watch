@@ -1,6 +1,13 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { set_favourite } from "../../store/actions/set_favorite";
 
 export default function MovieCard(props) {
+  const isFav = useSelector((state) => state.current_state);
+  const dispatch = useDispatch();
+  const changeFav = () => {
+    dispatch(set_favourite(!isFav));
+  };
   let shown = false;
   let apiKey = "e52ef21b96833b97ce76b3663ea32335";
   const [showModal, setShowModal] = React.useState(false);
@@ -50,9 +57,42 @@ export default function MovieCard(props) {
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
-              {/*content*/}
+              <img
+                className="w-full h-22  "
+                src={
+                  `https://image.tmdb.org/t/p/w500` +
+                  props.movieDetails.backdrop_path
+                }
+                alt="movie poster"
+              />
+              <button onClick={changeFav}>
+                <svg
+                  fill={isFav ? "red" : "white"}
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                </svg>
+              </button>
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-stone-300 outline-none focus:outline-none">
                 {/*header*/}
+                <div className="px-6 pt-2 pb-2 text-center">
+                  <span className="inline-block bg-red-800  rounded-full px-3 py-1 text-sm font-semibold text-slate-900 mr-2 mb-2">
+                    {props.movieDetails.vote_average
+                      ? props.movieDetails.vote_average
+                      : "-"}
+                  </span>
+                  <span className="inline-block bg-red-800 rounded-full px-3 py-1 text-sm font-semibold text-slate-900 mr-2 mb-2">
+                    {props.movieDetails.vote_count
+                      ? props.movieDetails.vote_count
+                      : "-"}
+                  </span>
+                  <span className="inline-block bg-red-800  rounded-full px-3 py-1 text-sm font-semibold text-slate-900 mr-2 mb-2">
+                    {props.movieDetails.original_language}
+                  </span>
+                </div>
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                   <h3 className="text-3xl font-semibold">
                     {props.movieDetails.title}
