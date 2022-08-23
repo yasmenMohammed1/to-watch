@@ -15,14 +15,13 @@ function App() {
       <Navbar />
       <Switch>
         <Provider store={store}>
-          <Route path={"/geners"} exaxt component={Geners} />
+          <Route exact path={"/geners"} exaxt component={Geners} />
           <Route exact path={"/movies/"} component={Movies} />
           <Route exact path={"/"} component={Movies} />
 
-          <Route path={"/movies/:search"} component={Movies} />
-          <Route path={"/register"} component={Register} />
+          <Route exact path={"/movies/:search"} component={Movies} />
+          <Route exact path={"/register"} component={Register} />
           <Route exact path="/genre/:id" component={GenereMovies} />
-          <Route path="*" component={NotFound} />
         </Provider>
       </Switch>
     </Router>
